@@ -84,7 +84,7 @@ static uint8_t ReadLevel(uint8_t pin)
 
 static void DetectButtonPolarity(void)
 {
-    pressedLevel[0] = (uint8_t)(ReadLevel(BTN_SW1_PIN) ^ 1u);   /* opposite of the idle level */
+    pressedLevel[0] = (uint8_t)(ReadLevel(BTN_SW1_PIN) ^ 1u);   
     pressedLevel[1] = (uint8_t)(ReadLevel(BTN_SW2_PIN) ^ 1u);
 }
 
@@ -225,12 +225,12 @@ int main(void)
         if (PressEvent(0u, BTN_SW1_PIN) != 0u)
         {
             DoSave();
-            potRef = pot;                 /* pot position is the new reference */
+            potRef = pot;                
         }
         else if (PressEvent(1u, BTN_SW2_PIN) != 0u)
         {
             DoDiscard();
-            potRef = pot;                 /* RAM stays restored until the pot moves again */
+            potRef = pot;                
         }
         else
         {
